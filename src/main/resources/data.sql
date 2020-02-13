@@ -1,0 +1,10 @@
+insert into answer (ans, status) values('1', 'ACT');
+insert into answer (ans, status) values('2', 'ACT');
+insert into answer (ans, status) values('3', 'ACT');
+insert into answer (ans, status) values('4', 'ACT');
+insert into answer (ans, status) values('5', 'ACT');
+insert into answer (ans, status) values('6', 'ACT');
+insert into answer (ans, status) values('7', 'ACT');
+insert into answer (ans, status) values('8', 'ACT');
+insert into answer (ans, status) values('9', 'ACT');
+insert into answer (ans, status) values('10', 'ACT');

@@ -1,19 +1,18 @@
 package com.example.demo.model;
 
-import lombok.Data;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "answer")
-@Data
 public class Answer {
 
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     private Integer id;
-    private String answer;
+    private String ans;
     private String status;
 
 }
