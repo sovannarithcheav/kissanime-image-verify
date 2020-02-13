@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #container {
+            display: flex;
+            /* establish flex container */
+            flex-direction: column;
+            /* make main-axis vertical */
+            justify-content: center;
+            /* align items vertically, in this case */
+            align-items: center;
+            /* align items horizontally, in this case */
+            height: 500px;
+            /* for demo purposes */
+            /*border: 1px solid black;*/
+            /* for demo purposes */
+            background-color: #eee;
+            /* for demo purposes */
+        }
+
+        .box {
+            width: 300px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        #center {
+            background: #fff;
+            width:1000px;
+            height:100px;
+        }
+    </style>
 </head>
 <body>
-    <center style="margin: 100px; font-size: xx-large; background-color: yellow">Hello HTML</center>
+<div id="container">
+    <!-- flex container -->
+    <h3> CAT </h3>
+    <div id="center" class="box">
+        <input type="image" src="alphabets/letter-a.png" alt="Submit" height="200px" style="margin: 30px;">
+        <input type="image" src="alphabets/letter-b.png" alt="Submit" height="200px" style="margin: 30px;">
+        <input type="image" src="alphabets/letter-c.png" alt="Submit" height="200px" style="margin: 30px;">
+    </div>
+
+</div>
 </body>
 </html>
