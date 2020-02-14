@@ -17,7 +17,7 @@ public class Question {
      * @see #question
      * so we still have two slots for another random answer !
      */
-    private HashMap<String, String> AnsList;
+    private HashMap<Integer, String> AnsList;
     private String UUID;
 
 }
