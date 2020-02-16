@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Question;
+import com.example.demo.model.ReqObject;
 import com.example.demo.service.impl.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,8 @@ public class MainController {
     }
 
     @PostMapping("/verify")
-    public ResponseEntity<Object> verifyQuestion(@RequestBody Object req) {
-        return ResponseEntity.accepted().build();
+    public ResponseEntity<Object> verifyQuestion(@RequestBody ReqObject req) {
+        Question q = questionService.verifyQuestion(req);
+        return ResponseEntity.ok(q);
     }
 }
