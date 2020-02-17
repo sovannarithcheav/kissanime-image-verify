@@ -36,7 +36,7 @@ public class QuestionService implements IQuestionService {
             ansRes.setUuid(uuid);
             ansList.add(ansRes);
         }
-        int ans = getRandomNo(0, 2);
+        int ans = getRandomNo(0, 3);
         AnswerEnum answerEnum = ll.get(ans);
         // Set Question
         q.setQuestion(answerEnum.get$for());
@@ -44,6 +44,7 @@ public class QuestionService implements IQuestionService {
 
         q.setArrAns(ansList);
         q.setUUID(UUID.randomUUID().toString());
+        q.setStatus("active");
         AnswerMap.map.put(q.getUUID(), q);
         return q;
     }
@@ -55,8 +56,11 @@ public class QuestionService implements IQuestionService {
 
     public Question verifyQuestion(String uuid, String ansUuid) {
         Question q = AnswerMap.map.get(uuid);
-        if (q != null && q.getAnsUUID().equals(ansUuid))
+        if (q != null && q.getAnsUUID().equals(ansUuid) && q.getStatus().equals("active")){
+            q.setStatus("verified");
+            AnswerMap.map.put(q.getUUID(), q);
             return q;
+        }
         return null;
     }
 

@@ -25,6 +25,7 @@ public class MainController {
     @PostMapping("/verify")
     public ResponseEntity<Object> verifyQuestion(@RequestBody ReqObject req) {
         Question q = questionService.verifyQuestion(req);
+        if (q == null) return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(q);
     }
 }

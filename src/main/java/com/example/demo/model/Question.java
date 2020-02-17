@@ -25,7 +25,7 @@ public class Question {
      */
     private String ansUUID;
     private String UUID;
-
+    private String status;
 }
 
 

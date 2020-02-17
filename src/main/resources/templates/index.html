@@ -29,21 +29,57 @@
 
         #center {
             background: #fff;
-            width:1000px;
-            height:100px;
+            width: 1000px;
+            height: 100px;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 <body>
 <div id="container">
     <!-- flex container -->
-    <h3> CAT </h3>
+    <h3 id="question"></h3>
     <div id="center" class="box">
-        <input type="image" src="alphabets/letter-a.png" alt="Submit" height="200px" style="margin: 30px;">
-        <input type="image" src="alphabets/letter-b.png" alt="Submit" height="200px" style="margin: 30px;">
-        <input type="image" src="alphabets/letter-c.png" alt="Submit" height="200px" style="margin: 30px;">
+        <input id="ans-0" type="image" onclick="verify(this.alt)" alt="Submit" height="200px" style="margin: 30px;">
+        <input id="ans-1" type="image" onclick="verify(this.alt)" alt="Submit" height="200px" style="margin: 30px;">
+        <input id="ans-2" type="image" onclick="verify(this.alt)" alt="Submit" height="200px" style="margin: 30px;">
     </div>
 
 </div>
+<script>
+    let uuid;
+    $(document).ready(function () {
+        $.get("/generate", function (data, status) {
+            console.log(data)
+            uuid = data.uuid;
+            $("#question").text(data.question);
+            $("#ans-0").attr({'src': data.arr_ans[0].path, 'alt': data.arr_ans[0].uuid});
+            $("#ans-1").attr({'src': data.arr_ans[1].path, 'alt': data.arr_ans[1].uuid});
+            $("#ans-2").attr({'src': data.arr_ans[2].path, 'alt': data.arr_ans[2].uuid});
+        });
+    });
+
+    function verify(ansUuid) {
+        let data = {
+            "uuid": uuid,
+            "ans_uuid": ansUuid
+        };
+        $.ajax({
+            type: "POST",
+            url: "/verify",
+            // The key needs to match your method's input parameter (case-sensitive).
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                if (data.status == 'verified') window.open("https://www.google.com/search?q=Congragulation", "_self")
+            },
+            error: function (errMsg) {
+                location.reload();
+            }
+        });
+    }
+</script>
 </body>
 </html>

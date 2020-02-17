@@ -12,7 +12,7 @@ public enum  AnswerEnum {
     A("alphabets/letter-a.png", "Apple",  "A"),
     B("alphabets/letter-b.png", "Bee", "B"),
     C("alphabets/letter-c.png", "Cat", "C"),
-    D("alphabets/letter-d.png", "Dog", "D"),
+    D("alphabets/letter-d.png", "Dump", "D"),
     E("alphabets/letter-e.png", "Egg", "E"),
     F("alphabets/letter-f.png", "Fish", "F"),
     G("alphabets/letter-g.png", "Grove", "G"),
